@@ -4,33 +4,39 @@ const Portfolio = () => {
   const projects = [
     {
       title: "TXT-ED",
-      image: "./src/assets/images/TXT-ED.jpg",
+      image: "./public/images/TXT-ED.jpg",
       link: "https://txt-ed.onrender.com/",
       repo: "https://github.com/JacqMcQ/TXT-ED",
     },
     {
       title: "Chit-Chat",
-      image: "",
+      image: "./public/images/Chit-Chat.jpg",
       link: "https://drive.google.com/file/d/1zWs4DeC9kLolT09siZRR4e_qzYpAmVy2/view?usp=sharing",
       repo: "https://github.com/JacqMcQ/Chit-Chat",
     },
     {
       title: "U-Post",
-      image: "./src/assets/images/U-Post.png",
+      image: "./public/images/U-Post.png",
       link: "https://u-post-duhp.onrender.com/login",
       repo: "https://github.com/JacqMcQ/U-Post",
     },
     {
       title: "Reader-Reply",
-      image: "src/assets/images/Reader-Reply.png",
+      image: "./public/images/Reader-Reply.png",
       link: "https://reader-reply.onrender.com/",
       repo: "https://github.com/JacqMcQ/Reader-Reply",
     },
     {
       title: "Foodie By JAD",
-      image: "src/assets/images/JAD.png",
+      image: "./public/images/JAD.png",
       link: "https://tuffythejeep.github.io/Project-JAD/",
       repo: "https://github.com/tuffythejeep/Project-JAD",
+    },
+    {
+      title: "Employee Payroll Tracker",
+      video: "./public/videos/CommerceNestDB-Demo.mp4",
+      link: "See Video demo for command-line app",
+      repo: "https://github.com/JacqMcQ/Employee-Payroll-Tracker?tab=readme-ov-file",
     },
   ];
 
@@ -41,7 +47,14 @@ const Portfolio = () => {
         {projects.map((project, index) => (
           <div key={index} className="project-card">
             <h3>{project.title}</h3>
-            <img src={project.image} alt={project.title} />
+            {project.video ? (
+              <video controls width="600">
+                <source src={project.video} type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+            ) : (
+              <img src={project.image} alt={project.title} />
+            )}
             <p>
               <a href={project.link} target="_blank" rel="noopener noreferrer">
                 View Project
