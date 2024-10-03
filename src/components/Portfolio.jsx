@@ -4,38 +4,38 @@ const Portfolio = () => {
   const projects = [
     {
       title: "TXT-ED",
-      image: "./public/images/TXT-ED.jpg",
+      image: "/TXT-ED.jpg",
       link: "https://txt-ed.onrender.com/",
       repo: "https://github.com/JacqMcQ/TXT-ED",
     },
     {
       title: "Chit-Chat",
-      image: "./public/images/Chit-Chat.jpg",
+      image: "/Chit-Chat.jpg",
       link: "https://drive.google.com/file/d/1zWs4DeC9kLolT09siZRR4e_qzYpAmVy2/view?usp=sharing",
       repo: "https://github.com/JacqMcQ/Chit-Chat",
     },
     {
       title: "U-Post",
-      image: "./public/images/U-Post.png",
+      image: "/U-Post.png",
       link: "https://u-post-duhp.onrender.com/login",
       repo: "https://github.com/JacqMcQ/U-Post",
     },
     {
       title: "Reader-Reply",
-      image: "./public/images/Reader-Reply.png",
+      image: "/Reader-Reply.png",
       link: "https://reader-reply.onrender.com/",
       repo: "https://github.com/JacqMcQ/Reader-Reply",
     },
     {
       title: "Foodie By JAD",
-      image: "./public/images/JAD.png",
+      image: "/JAD.png",
       link: "https://tuffythejeep.github.io/Project-JAD/",
       repo: "https://github.com/tuffythejeep/Project-JAD",
     },
     {
       title: "Employee Payroll Tracker",
-      video: "./public/videos/CommerceNestDB-Demo.mp4",
-      link: "See Video demo for command-line app",
+      video: "/CommerceNestDB-Demo.mp4",
+      link: "https://github.com/JacqMcQ/Employee-Payroll-Tracker?tab=readme-ov-file",
       repo: "https://github.com/JacqMcQ/Employee-Payroll-Tracker?tab=readme-ov-file",
     },
   ];
@@ -48,12 +48,20 @@ const Portfolio = () => {
           <div key={index} className="project-card">
             <h3>{project.title}</h3>
             {project.video ? (
-              <video controls width="600">
-                <source src={project.video} type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
+              <a href={project.link} target="_blank" rel="noopener noreferrer">
+                <video controls width="600">
+                  <source src={project.video} type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+              </a>
             ) : (
-              <img src={project.image} alt={project.title} />
+              <a href={project.link} target="_blank" rel="noopener noreferrer">
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="portfolio-img"
+                />
+              </a>
             )}
             <p>
               <a href={project.link} target="_blank" rel="noopener noreferrer">

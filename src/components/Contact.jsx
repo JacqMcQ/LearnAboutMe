@@ -7,6 +7,24 @@ const Contact = () => {
     message: "",
   });
   const [errors, setErrors] = useState({});
+  
+  const handleBlur = (e) => {
+    const { name, value } = e.target;
+    let newErrors = { ...errors };
+
+    // Validate on blur for the specific field
+    if (name === "name" && !value) {
+      newErrors.name = "Name is required";
+    } else if (name === "email" && !/\S+@\S+\.\S+/.test(value)) {
+      newErrors.email = value ? "Email is invalid" : "Email is required";
+    } else if (name === "message" && !value) {
+      newErrors.message = "Message is required";
+    } else {
+      delete newErrors[name]; 
+    }
+
+    setErrors(newErrors);
+  };
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -28,7 +46,6 @@ const Contact = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (validateForm()) {
-      // Handle form submission
       console.log("Form submitted:", formData);
     }
   };
@@ -44,6 +61,7 @@ const Contact = () => {
             name="name"
             value={formData.name}
             onChange={handleChange}
+            onBlur={handleBlur} 
           />
           {errors.name && <span className="error">{errors.name}</span>}
         </label>
@@ -54,6 +72,7 @@ const Contact = () => {
             name="email"
             value={formData.email}
             onChange={handleChange}
+            onBlur={handleBlur} 
           />
           {errors.email && <span className="error">{errors.email}</span>}
         </label>
@@ -63,6 +82,7 @@ const Contact = () => {
             name="message"
             value={formData.message}
             onChange={handleChange}
+            onBlur={handleBlur} 
           />
           {errors.message && <span className="error">{errors.message}</span>}
         </label>
