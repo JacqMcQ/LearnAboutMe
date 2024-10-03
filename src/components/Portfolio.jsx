@@ -4,7 +4,7 @@ const Portfolio = () => {
   const projects = [
     {
       title: "TXT-ED",
-      image: "./public/images/TXT-ED.jpg",
+      image: "./images/TXT-ED.jpg",
       link: "https://txt-ed.onrender.com/",
       repo: "https://github.com/JacqMcQ/TXT-ED",
     },
@@ -16,25 +16,25 @@ const Portfolio = () => {
     },
     {
       title: "U-Post",
-      image: "./public/images/U-Post.png",
+      image: "./images/U-Post.png",
       link: "https://u-post-duhp.onrender.com/login",
       repo: "https://github.com/JacqMcQ/U-Post",
     },
     {
       title: "Reader-Reply",
-      image: "./public/images/Reader-Reply.png",
+      image: "./images/Reader-Reply.png",
       link: "https://reader-reply.onrender.com/",
       repo: "https://github.com/JacqMcQ/Reader-Reply",
     },
     {
       title: "Foodie By JAD",
-      image: "./public/images/JAD.png",
+      image: "./images/JAD.png",
       link: "https://tuffythejeep.github.io/Project-JAD/",
       repo: "https://github.com/tuffythejeep/Project-JAD",
     },
     {
       title: "Employee Payroll Tracker",
-      video: "./public/videos/CommerceNestDB-Demo.mp4",
+      video: "./videos/CommerceNestDB-Demo.mp4",
       link: "See Video demo for command-line app",
       repo: "https://github.com/JacqMcQ/Employee-Payroll-Tracker?tab=readme-ov-file",
     },
