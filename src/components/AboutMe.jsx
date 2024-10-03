@@ -4,7 +4,7 @@ const AboutMe = () => {
   return (
     <section>
       <h2>About Me</h2>
-      <img src="/profile.jpg" alt="Jacqlyn McQuade" className="profile-img" />
+      <img src="profile.jpg" alt="Jacqlyn McQuade" className="profile-img" />
       <p>
         As a full stack web developer I am passionate about learning new things
         and innovating for the future. I am eager to gain any expereince where

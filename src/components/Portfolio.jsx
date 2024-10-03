@@ -4,37 +4,37 @@ const Portfolio = () => {
   const projects = [
     {
       title: "TXT-ED",
-      image: "/TXT-ED.jpg",
+      image: "TXT-ED.jpg",
       link: "https://txt-ed.onrender.com/",
       repo: "https://github.com/JacqMcQ/TXT-ED",
     },
     {
       title: "Chit-Chat",
-      image: "/Chit-Chat.jpg",
+      image: "Chit-Chat.jpg",
       link: "https://drive.google.com/file/d/1zWs4DeC9kLolT09siZRR4e_qzYpAmVy2/view?usp=sharing",
       repo: "https://github.com/JacqMcQ/Chit-Chat",
     },
     {
       title: "U-Post",
-      image: "/U-Post.png",
+      image: "U-Post.png",
       link: "https://u-post-duhp.onrender.com/login",
       repo: "https://github.com/JacqMcQ/U-Post",
     },
     {
       title: "Reader-Reply",
-      image: "/Reader-Reply.png",
+      image: "Reader-Reply.png",
       link: "https://reader-reply.onrender.com/",
       repo: "https://github.com/JacqMcQ/Reader-Reply",
     },
     {
       title: "Foodie By JAD",
-      image: "/JAD.png",
+      image: "JAD.png",
       link: "https://tuffythejeep.github.io/Project-JAD/",
       repo: "https://github.com/tuffythejeep/Project-JAD",
     },
     {
       title: "Employee Payroll Tracker",
-      video: "/CommerceNestDB-Demo.mp4",
+      video: "CommerceNestDB-Demo.mp4",
       link: "https://github.com/JacqMcQ/Employee-Payroll-Tracker?tab=readme-ov-file",
       repo: "https://github.com/JacqMcQ/Employee-Payroll-Tracker?tab=readme-ov-file",
     },
