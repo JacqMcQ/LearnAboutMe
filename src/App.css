@@ -31,6 +31,16 @@ header {
 header h1 {
   font-size: 2.5rem; 
 }
+header ul {
+  list-style: none; 
+  padding: 0; 
+  margin: 0; 
+}
+
+header ul li {
+  display: inline-block; 
+  margin-right: 15px; 
+}
 
 
 nav {
@@ -104,6 +114,15 @@ button:hover {
    gap: 20px;
 }
 
+/* Profile img */
+.profile-img {
+  width: 150px; 
+  height: 150px; 
+  border-radius: 50%; 
+  object-fit: cover; 
+  border: 3px solid #4A90E2; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
 
 /* Uniform image styling */
 img {
@@ -115,17 +134,25 @@ img {
 
 /* Specific class for portfolio images */
 .portfolio-img {
-  width: 250px; 
+  width: 250px;
   height: 150px;
-  object-fit: cover; 
-  border-radius: 8px; 
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); 
-  margin: 10px; 
-/* border */
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  margin: 10px;
   border: 2px solid #007BFF; 
-  background-color: white; 
-  padding: 5px; 
+  background-color: white;
+  padding: 5px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Adding smooth transition */
 }
+
+/* Hover effect for images */
+.portfolio-img:hover {
+  transform: scale(1.05); /* Slight zoom effect */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Enhanced shadow for hover */
+  border-color: #FF6F61; /* Change border color on hover */
+}
+
 /* Contact.css */
 
 section {
@@ -145,47 +172,52 @@ form {
 }
 
 label {
-  margin-bottom: 10px; 
+  display: flex;
+  flex-direction: column;
   font-family: 'Montserrat', sans-serif;
+  margin-bottom: 15px;
+  font-size: 1rem;
+  color: #333;
 }
 
 input[type="text"],
 input[type="email"],
 textarea {
   padding: 10px;
-  margin-bottom: 15px;
-  border: 2px solid #007BFF; 
-  border-radius: 5px; 
-  font-family: 'Roboto', sans-serif; 
+  margin-top: 5px; /* Add space between label and input */
+  border: 2px solid #007BFF;
+  border-radius: 5px;
+  font-family: 'Roboto', sans-serif;
   font-size: 16px;
-  transition: border-color 0.3s ease; 
+  transition: border-color 0.3s ease;
+  width: 100%;
 }
 
-input[type="text"]:focus,
-input[type="email"]:focus,
-textarea:focus {
-  border-color: #0056b3; 
-  outline: none; 
+textarea {
+  min-height: 120px; /* Ensure textarea has a larger height by default */
 }
 
+/* Error message styling */
 .error {
-  color: red; 
-  font-size: 14px; 
-  margin-top: -10px; 
+  color: red;
+  font-size: 14px;
+  margin-top: 5px;
 }
 
+/* Submit button styling */
 button {
   padding: 10px 15px;
-  background-color: #007BFF; 
-  color: white; 
-  border: none; 
-  border-radius: 5px; 
-  font-family: 'Montserrat', sans-serif; 
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-family: 'Montserrat', sans-serif;
   font-size: 16px;
   cursor: pointer;
-  transition: background-color 0.3s ease; 
+  transition: background-color 0.3s ease;
+  margin-top: 10px;
 }
 
 button:hover {
-  background-color: #0056b3; 
+  background-color: #0056b3;
 }
