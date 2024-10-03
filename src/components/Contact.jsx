@@ -46,13 +46,15 @@ const Contact = () => {
     e.preventDefault();
     if (validateForm()) {
       try {
-        const response = await fetch("http://localhost:5000/contact", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(formData),
-        });
+        const response = await fetch("https://jacqlynsportfolio.netlify.app/contact",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(formData),
+          }
+        );
         if (response.ok) {
           setSuccessMessage("Message sent successfully!");
           setFormData({ name: "", email: "", message: "" }); 
@@ -61,7 +63,7 @@ const Contact = () => {
           setErrors({ submit: errorData.message });
         }
       } catch (error) {
-        console.error("Error submitting form:", error);
+        console.error("Error submitting message:", error);
         setErrors({ submit: "An error occurred while submitting the form." });
       }
     }
