@@ -6,6 +6,14 @@ import bodyParser from "body-parser";
 const app = express();
 const PORT = process.env.PORT || 5000;
 
+import path from "path";
+const __dirname = path.resolve();
+app.use(express.static(path.join(__dirname, "dist")));
+
+app.get("*", (req, res) => {
+  res.sendFile(path.resolve(__dirname, "dist", "index.html"));
+});
+
 // Allow requests from Netlify (frontend)
 const allowedOrigins = ["https://jacqlynsportfolio.netlify.app"];
 
