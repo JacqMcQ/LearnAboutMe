@@ -7,12 +7,12 @@ const Contact = () => {
     message: "",
   });
   const [errors, setErrors] = useState({});
-  
+  const [successMessage, setSuccessMessage] = useState("");
+
   const handleBlur = (e) => {
     const { name, value } = e.target;
     let newErrors = { ...errors };
 
-    // Validate on blur for the specific field
     if (name === "name" && !value) {
       newErrors.name = "Name is required";
     } else if (name === "email" && !/\S+@\S+\.\S+/.test(value)) {
@@ -20,12 +20,11 @@ const Contact = () => {
     } else if (name === "message" && !value) {
       newErrors.message = "Message is required";
     } else {
-      delete newErrors[name]; 
+      delete newErrors[name];
     }
 
     setErrors(newErrors);
   };
-
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -43,10 +42,28 @@ const Contact = () => {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (validateForm()) {
-      console.log("Form submitted:", formData);
+      try {
+        const response = await fetch("http://localhost:5000/contact", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        });
+        if (response.ok) {
+          setSuccessMessage("Message sent successfully!");
+          setFormData({ name: "", email: "", message: "" }); 
+        } else {
+          const errorData = await response.json();
+          setErrors({ submit: errorData.message });
+        }
+      } catch (error) {
+        console.error("Error submitting form:", error);
+        setErrors({ submit: "An error occurred while submitting the form." });
+      }
     }
   };
 
@@ -61,7 +78,7 @@ const Contact = () => {
             name="name"
             value={formData.name}
             onChange={handleChange}
-            onBlur={handleBlur} 
+            onBlur={handleBlur}
           />
           {errors.name && <span className="error">{errors.name}</span>}
         </label>
@@ -72,7 +89,7 @@ const Contact = () => {
             name="email"
             value={formData.email}
             onChange={handleChange}
-            onBlur={handleBlur} 
+            onBlur={handleBlur}
           />
           {errors.email && <span className="error">{errors.email}</span>}
         </label>
@@ -82,11 +99,13 @@ const Contact = () => {
             name="message"
             value={formData.message}
             onChange={handleChange}
-            onBlur={handleBlur} 
+            onBlur={handleBlur}
           />
           {errors.message && <span className="error">{errors.message}</span>}
         </label>
+        {errors.submit && <span className="error">{errors.submit}</span>}
         <button type="submit">Submit</button>
+        {successMessage && <span className="success">{successMessage}</span>}
       </form>
     </section>
   );
