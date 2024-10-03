@@ -3,6 +3,7 @@ services:
   - type: web
     name: profileContact
     env: node
-    buildCommand: npm install
-    startCommand: npm start
+    plan: free
+    buildCommand: "npm install"
+    startCommand: "npm start"
     autoDeploy: true
