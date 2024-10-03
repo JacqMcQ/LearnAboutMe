@@ -20,8 +20,7 @@ const allowedOrigins = ["https://jacqlynsportfolio.netlify.app"];
 app.use(
   cors({
     origin: allowedOrigins,
-    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-    credentials: true,
+    methods: ["GET,POST"],
   })
 );
 

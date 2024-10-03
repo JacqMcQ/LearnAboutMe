@@ -46,7 +46,8 @@ const Contact = () => {
     e.preventDefault();
     if (validateForm()) {
       try {
-        const response = await fetch("https://jacqlynsportfolio.netlify.app/contact",
+        const response = await fetch(
+          "https://learnaboutme.onrender.com/contact",
           {
             method: "POST",
             headers: {
@@ -57,7 +58,7 @@ const Contact = () => {
         );
         if (response.ok) {
           setSuccessMessage("Message sent successfully!");
-          setFormData({ name: "", email: "", message: "" }); 
+          setFormData({ name: "", email: "", message: "" });
         } else {
           const errorData = await response.json();
           setErrors({ submit: errorData.message });
