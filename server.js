@@ -6,13 +6,23 @@ import bodyParser from "body-parser";
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-app.use(cors());
+// Allow requests from Netlify (frontend)
+const allowedOrigins = ["https://jacqlynsportfolio.netlify.app"];
+
+app.use(
+  cors({
+    origin: allowedOrigins,
+    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+    credentials: true,
+  })
+);
+
 app.use(bodyParser.json());
 
-mongoose.connect("mongodb://localhost:27017/profilecontactDB")
-.then(() => console.log("MongoDB connected"))
-  .catch(err => console.error("MongoDB connection error:", err));
-
+mongoose
+  .connect("mongodb://localhost:27017/profilecontactDB")
+  .then(() => console.log("MongoDB connected"))
+  .catch((err) => console.error("MongoDB connection error:", err));
 
 // Define a schema and model for the contact form data
 const contactSchema = new mongoose.Schema({
@@ -23,7 +33,7 @@ const contactSchema = new mongoose.Schema({
 
 const Contact = mongoose.model("Contact", contactSchema);
 
-// API endpoint 
+// API endpoint
 app.post("/contact", async (req, res) => {
   const { name, email, message } = req.body;
   try {
