@@ -2,16 +2,17 @@ import express from "express";
 import mongoose from "mongoose";
 import cors from "cors";
 import bodyParser from "body-parser";
+import path from "path";
 
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-import path from "path";
+
 const __dirname = path.resolve();
 app.use(express.static(path.join(__dirname, "dist")));
 
 app.get("*", (req, res) => {
-  res.sendFile(path.resolve(__dirname, "dist", "index.html"));
+  res.redirect("https://jacqlynsportfolio.netlify.app"); // Redirect traffic from Render to Netlify. 
 });
 
 // Allow requests from Netlify (frontend)
