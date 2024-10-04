@@ -2,6 +2,8 @@
 
 Welcome to my portfolio project! This is a MERN-stack application designed to showcase my work and allow users to contact me through a simple form. Please note at this point in time I am developping the backenf for receiving data from the contact form; in the meantime, feel free to reference my email listed. 
 
+## View My Portfolio at: https://jacqlynsportfolio.netlify.app/
+
 ## Table of Contents
 
 - [Features](#features)
