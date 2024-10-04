@@ -13,12 +13,15 @@ const Footer = () => {
         </a>{" "}
         |{" "}
         <a
-          href="www.linkedin.com/in/jacqlyn-mcquade"
+          href="https://www.linkedin.com/in/jacqlyn-mcquade/"
           target="_blank"
           rel="noopener noreferrer"
         >
           LinkedIn
         </a>
+
+        Email: jacqlyntest@test.com
+        
       </p>
     </footer>
   );
